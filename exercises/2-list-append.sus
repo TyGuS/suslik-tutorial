@@ -1,0 +1,8 @@
+// append two singly-linked lists
+
+predicate list(loc x, set s) {
+|  x == 0  => { s == {} ; emp }
+|  x != 0  => { s == {v} + s1 ; [x, 2] ** x :-> v ** (x + 1) :-> nxt ** list(nxt, s1) }
+}
+
+// TODO: write a spec for append

@@ -1,0 +1,8 @@
+// rotate values of three pointers
+
+void rotate(loc x, loc y, loc z)
+{true ; x :-> a ** y :-> b ** z :-> c }
+{true ; x :-> c ** y :-> a ** z :-> b }
+{
+  ??
+}
