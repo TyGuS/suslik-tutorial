@@ -1,0 +1,8 @@
+// backtracking example
+
+void pick(loc x, loc y)
+{ a > b ; x :-> a ** y :-> b }
+{ true ; x :-> c ** y :-> d }
+{
+  ??
+}
