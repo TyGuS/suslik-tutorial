@@ -1,4 +1,4 @@
-# suslik-tutorial
+x# suslik-tutorial
 
 The SuSLik web interface is [here](http://comcom.csail.mit.edu/comcom/#SuSLik)
 
@@ -10,4 +10,16 @@ The SuSLik web interface is [here](http://comcom.csail.mit.edu/comcom/#SuSLik)
 
 ## SuSLik Cheatsheet
 
-TODO
+Here are some representative examples of different SuSLik constructs:
+
+### Types
+
+`bool`, `int`, `loc`, `set`
+
+### Expressions
+
+- Arithmetic: `x + 1`, `y - 2`, `5 * z`
+- Sets: `{}`, `{1, 2} + {3}` (union), `{1, 2} * {2, 3}` (intersection), `s - {x}` (difference)
+- Relational: `x == 1`, `x != 1`, `x <= 1`, `x < 1`, `x >= 1`, `x > 1`
+    - with sets: `x in {1, 2}`, `{1} <= {1, 2}`
+- Logical: `true`, `false`, `not x`, `x && y`, `x || y`, `x ==> y` 
