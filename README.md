@@ -1,5 +1,7 @@
 # suslik-tutorial
 
+The SuSLik web interface is [here](http://comcom.csail.mit.edu/comcom/#SuSLik)
+
 ## Exercises
 
 1. [Rotate three](exercises/1-rotate.sus)
