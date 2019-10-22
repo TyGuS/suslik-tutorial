@@ -1,5 +1,3 @@
-x# suslik-tutorial
-
 The SuSLik web interface is [here](http://comcom.csail.mit.edu/comcom/#SuSLik)
 
 ## Exercises
