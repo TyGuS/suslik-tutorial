@@ -1,0 +1,23 @@
+// convert a singly-linked list into a doubly-linked list;
+// you can do this in-place (if you have reserved space in each list node) or with re-allocation;
+// instructions below are for the in-place version
+
+// TODO 1: modify this singly-linked list predicate
+// to include an extra field in every node that just stores 0
+predicate sll(loc x, set s) {
+|  x == 0  => { s == {} ; emp }
+|  x != 0  => { s == {v} + s1 ; [x, 2] ** x :-> v ** (x + 1) :-> nxt ** sll(nxt, s1) }
+}
+
+// TODO 2: define a predicate for doubly-linked list
+// Hint: you might want to add an extra parameter!
+
+// TODO 3: replace emp with a spec for converting a singly-linked list at `x`
+// into a doubly-linked list at `x` with the same elements
+void sll_to_dll(loc x)
+{ emp }
+{ emp }
+{
+  ??
+}
+

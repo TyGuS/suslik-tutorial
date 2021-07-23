@@ -1,8 +1,8 @@
 // rotate values of three pointers
 
 void rotate(loc x, loc y, loc z)
-{ true ; emp } // TODO: replace emp with a 3-location heap
-{ true ; emp } // TODO: replace emp with a 3-location heap, with values rotated
+{ emp } // TODO: replace emp with a 3-location heap
+{ emp } // TODO: replace emp with a 3-location heap, with values rotated
 {
   ??
 }

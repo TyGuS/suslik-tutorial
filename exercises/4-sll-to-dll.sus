@@ -12,10 +12,12 @@ predicate dll(loc x, loc y, set s) {
 }
 
 // Convert a list with head `x` into a doubly-linked list 
-// with the same elements and at the same location.
-void to_dll(loc x)
+// with the same elements, at the same location, and with back-pointer `prev`.
+void to_dll(loc x, loc prev)
 { sll_reserved(x, s) }
-{ dll(x, 0, s) }
+{ dll(x, prev, s) }
 {
-  ??
+  // TODO: derive the implementation interactively
+  // Hint: you'll need to use the PickExist rule to select the right `prev` argument for the recursive call!
+  ?? 
 }

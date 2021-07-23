@@ -1,4 +1,5 @@
-// convert a singly-linked list with a spare cell into a doubly-linked list (in place)
+// convert a singly-linked list with reserved space in each node 
+// into a doubly-linked list (in place)
 
 predicate sll_reserved(loc x, set s) {
 |  x == 0  => { s == {} ; emp }

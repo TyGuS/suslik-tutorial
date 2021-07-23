@@ -1,0 +1,22 @@
+// deallocate a rose tree
+
+// A rose tree is an n-ary tree that stores child nodes in a linked list;
+// the predicate `rtree` describes a rose tree, and `children` describes a list of rose trees.
+predicate rtree(loc x) {
+|  x == 0  => { emp }
+|  x != 0  => { [x, 2] ** x :-> v ** (x + 1) :-> c ** children(c) }
+}
+
+predicate children(loc x) {
+|  x == 0  => { emp }
+|  x != 0  => { [x, 2] ** x :-> r ** rtree(r) ** (x + 1) :-> nxt ** children(nxt) }
+}
+
+// Deallocate the tree rooted at `x`.
+void dispose(loc x)
+{ rtree(x) }
+{ emp }
+{
+  // TODO: derive a mutually-recursive implementation interactively
+  ??
+}

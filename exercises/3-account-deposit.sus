@@ -1,0 +1,14 @@
+// deposit into a bank account
+
+predicate account(loc x, int bal) {
+ |  true  => { bal >= 0 ; [x, 1] ** x :-> bal }
+ }
+
+// Deposit `amt` into a bank account at `acc`.
+void deposit (loc acc, int amt)
+{ emp }  // TODO 1: replace emp with an account at `acc`
+{ emp }  // TODO 2: replace emp with an account with modified balance
+{
+  ?? // TODO 3: derive the implementation interactively
+     // by selecting which proof goals to expand
+}
