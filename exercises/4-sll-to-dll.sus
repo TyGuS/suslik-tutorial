@@ -18,6 +18,6 @@ void to_dll(loc x, loc prev)
 { dll(x, prev, s) }
 {
   // TODO: derive the implementation interactively
-  // Hint: you'll need to use the PickExist rule to select the right `prev` argument for the recursive call!
+  // Hint: you'll need to use the Pick rule to select the right `prev` argument for the recursive call!
   ?? 
 }
