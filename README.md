@@ -1,12 +1,6 @@
-The SuSLik web interface is [here](http://comcom.csail.mit.edu/comcom/#SuSLik)
+The SuSLik web interface is [here](https://suslik.programming.systems/)
 
-## Exercises
-
-1. [Rotate three](exercises/1-rotate.sus)
-2. [Append two lists](exercises/2-list-append.sus)
-2. [Schema migration](exercises/3-sll-to-dll.sus)
-
-## SuSLik Cheatsheet
+## Specifications Cheatsheet
 
 Here are some representative examples of different SuSLik constructs:
 
@@ -40,4 +34,49 @@ predicate list(loc x, set s) {
 |  x == 0  => { s == {} ; emp }
 |  x != 0  => { s == {v} + s1 ; [x, 2] ** x :-> v ** (x + 1) :-> nxt ** list(nxt, s1) }
 }
+```
+
+## Useful SSL rules
+
+**Emp** Closes the derivation once the heaps are empty
+```
+            φ ⇒ ψ
+------------------------------- [emp]
+{φ ; emp} --> {ψ ; emp} | skip
+```
+
+**Frame** Removes identical heaplets from pre- and post-condition
+```
+     {φ ; P} --> {ψ ; Q} | c
+------------------------------- [frame]
+{φ ; P * R} --> {ψ ; Q * R} | c
+```
+
+**Read** Reads a ghost variable from the heap:
+```
+[y/a]{φ ; x -> a * P} --> [y/a]{ψ ; Q} | c
+----------------------------------------------- [read]
+{φ ; x -> a * P} --> {ψ ; Q} | let y := *x ; c
+```
+
+**Write** Writes a desired non-ghost exression into the heap:
+```
+{φ ; x -> e * P} --> {ψ ; x -> e * Q} | c
+--------------------------------------------------- [write]
+{φ ; x -> _ * P} --> {ψ ; x -> e * Q} | *x := e ; c
+```
+
+**Free** Frees a memory block we have in the pre
+```
+{φ ; P} --> {ψ ; x -> e * Q} | c
+----------------------------------------------------------------------- [free]
+{φ ; [x,n+1] * x -> _ * ... * (x,n) -> _ * P} --> {ψ ; Q} | free(x) ; c
+```
+
+**Alloc** Allocates a memory block that is needed in the post and starts at an existential
+```
+x is existential
+{φ ; [x1,n+1] * x1 -> a1 * ... * (x1,n) -> an * P} --> {ψ ; [x1,n] * x1 -> e1 * ... * (x,n) -> en * Q} | c
+---------------------------------------------------------------------------------------------------------- [alloc]
+{φ ; P} --> {ψ ; [x,n+1] * x -> e1 * ... * (x,n) -> en * Q} | x1 = malloc(n) ; c
 ```
