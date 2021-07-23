@@ -76,7 +76,37 @@ predicate list(loc x, set s) {
 **Alloc** Allocates a memory block that is needed in the post and starts at an existential
 ```
 x is existential
-{φ ; [x1,n+1] * x1 -> a1 * ... * (x1,n) -> an * P} --> {ψ ; [x1,n] * x1 -> e1 * ... * (x,n) -> en * Q} | c
+{φ ; [x1,n+1] * x1 -> a1 * ... * (x1,n) -> an * P} --> {ψ ; [x1,n] * x1 -> e1 * ... * (x1,n) -> en * Q} | c
 ---------------------------------------------------------------------------------------------------------- [alloc]
 {φ ; P} --> {ψ ; [x,n+1] * x -> e1 * ... * (x,n) -> en * Q} | x1 = malloc(n) ; c
+```
+
+**Open** Unfold predicate in precondition
+```
+{φ ; clause1(e) * P} --> {ψ ; Q} | c1   {φ ; clause2(e) * P} --> {ψ ; Q} | c1
+------------------------------------------------------------------------------- [open]
+             {φ ; pred(e) * P} --> {ψ ; Q} | if (guard) {c1} else c2
+```
+
+**Close** Unfold predicate in postcondition
+```
+{φ ; P} --> {ψ ; clause_i(e) * Q} | c
+-------------------------------------- [close]
+   {φ ; P} --> {ψ ; pred(e) * Q} | c
+```
+
+**Unify** Unify a heaplet with existentials in post with some heaplet in pre
+```
+x is existential
+{φ ; P * [e/x]R} --> {ψ ; Q * [e/x]R} | c
+------------------------------------------ [unify]
+   {φ ; P * [e/x]R} --> {ψ ; Q * R} | c
+```
+
+**Pick** Replace an existential with any variable in scope of the same type
+```
+x is existential
+{φ ; P} --> {ψ ; [e/x]Q} | c
+----------------------------- [pick]
+  {φ ; P} --> {ψ ; Q} | c
 ```
