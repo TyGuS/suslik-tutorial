@@ -1,5 +1,5 @@
-<!-- The SuSLik web interface is [here](https://suslik.programming.systems/) -->
-The SuSLik web interface is [here](http://ec2-34-221-190-196.us-west-2.compute.amazonaws.com:8033/)
+The SuSLik web interface is [here](https://suslik.programming.systems/)
+<!-- The SuSLik web interface is [here](http://ec2-34-221-190-196.us-west-2.compute.amazonaws.com:8033/) -->
 
 ## Specifications Cheatsheet
 
